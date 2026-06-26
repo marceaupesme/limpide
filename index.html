@@ -170,7 +170,7 @@
     line-height: 1.65;
     color: var(--navy);
     margin-bottom: 1.1rem;
-    max-width: 720px;
+    max-width: none;
   }
 
   .body-text:last-child { margin-bottom: 0; }
@@ -187,10 +187,7 @@
     background: var(--cream);
   }
 
-  .section-qui .fade-in,
-  .section-projet .fade-in {
-    max-width: 760px;
-  }
+
 
   /* ── LE PROJET — fond navy ────────────────────────────────────────── */
   .section-projet {
@@ -375,12 +372,11 @@
     letter-spacing: 0.02em;
     color: var(--cream);
     margin-bottom: 2rem;
-    max-width: 760px;
   }
 
   .section-pourquoi .body-text {
     color: rgba(241, 233, 214, 0.85);
-    max-width: 760px;
+    max-width: none;
   }
 
   /* ── FOOTER ───────────────────────────────────────────────────────── */
@@ -410,15 +406,6 @@
 
   /* ── RESPONSIVE ───────────────────────────────────────────────────── */
 
-  /* Contenu intérieur limité en largeur sur grands écrans */
-  .section > *,
-  .section-pourquoi > * {
-    max-width: 900px;
-  }
-
-  .section-projet > * {
-    max-width: 900px;
-  }
 
   @media (max-width: 768px) {
     .hero { padding: 2rem; }

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limpide — Un espace d'apprentissage sur ce qui compte dans une vie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --navy: #14223F;
+    --cream: #F1E9D6;
+    --cream-dark: #E5D9C0;
+    --cream-darker: #D8C9A8;
+    --text-mid: #4A4030;
+    --text-light: #8A7A60;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TYPOGRAPHIE ──────────────────────────────────────────────────── */
+  .anton {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 4rem 3rem;
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .hero-eyebrow {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(241, 233, 214, 0.55);
+  }
+
+  .hero-meta {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(241, 233, 214, 0.55);
+    text-align: right;
+  }
+
+  .hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 0 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(72px, 13vw, 160px);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-style: italic;
+    color: rgba(241, 233, 214, 0.75);
+    max-width: 500px;
+    line-height: 1.45;
+  }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(241, 233, 214, 0.2);
+    padding-top: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.02em;
+    font-size: 15px;
+    color: var(--cream);
+  }
+
+  .hero-contact {
+    font-size: 13px;
+    color: rgba(241, 233, 214, 0.6);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* ── SECTION BASE ─────────────────────────────────────────────────── */
+  .section {
+    padding: 5rem 4rem;
+  }
+
+  .section-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--navy);
+    display: inline-block;
+    padding-right: 2rem;
+    opacity: 0.7;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .body-text {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--navy);
+    margin-bottom: 1.1rem;
+    max-width: 640px;
+  }
+
+  .body-text:last-child { margin-bottom: 0; }
+
+  /* ── DIVIDER ──────────────────────────────────────────────────────── */
+  .divider {
+    height: 1px;
+    background: var(--cream-darker);
+    margin: 0 4rem;
+  }
+
+  /* ── QUI SUIS-JE ──────────────────────────────────────────────────── */
+  .section-qui {
+    background: var(--cream);
+  }
+
+  /* ── LE PROJET — fond navy ────────────────────────────────────────── */
+  .section-projet {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  .section-projet .section-label {
+    color: var(--cream);
+    border-bottom-color: var(--cream);
+    opacity: 0.6;
+  }
+
+  .section-projet .section-title {
+    color: var(--cream);
+  }
+
+  .section-projet .body-text {
+    color: rgba(241, 233, 214, 0.88);
+  }
+
+  .pull-quote {
+    border-left: 3px solid var(--cream);
+    padding: 1.2rem 2rem;
+    margin: 2rem 0;
+    max-width: 600px;
+  }
+
+  .pull-quote p {
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: var(--cream);
+    line-height: 1.3;
+  }
+
+  /* ── CE QU'ON EXPLORE ────────────────────────────────────────────── */
+  .section-explore {
+    background: var(--cream);
+  }
+
+  .explore-list {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .explore-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--cream-darker);
+    align-items: baseline;
+  }
+
+  .explore-item:last-child {
+    border-bottom: 1px solid var(--cream-darker);
+  }
+
+  .explore-item-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .explore-item-desc {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  /* ── VIDÉOS ───────────────────────────────────────────────────────── */
+  .section-videos {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  .section-videos .section-label {
+    color: var(--cream);
+    border-bottom-color: var(--cream);
+    opacity: 0.6;
+  }
+
+  .section-videos .section-title {
+    color: var(--cream);
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .video-block {}
+
+  .video-tag {
+    font-family: 'Anton', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(241, 233, 214, 0.5);
+    margin-bottom: 0.8rem;
+  }
+
+  .video-label {
+    font-style: italic;
+    font-size: 17px;
+    color: rgba(241, 233, 214, 0.8);
+    margin-bottom: 1rem;
+    line-height: 1.35;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  /* ── CONVERSATION ────────────────────────────────────────────────── */
+  .section-conversation {
+    background: var(--cream);
+  }
+
+  .trame {
+    margin-top: 2rem;
+    max-width: 580px;
+  }
+
+  .trame-item {
+    display: flex;
+    gap: 1.2rem;
+    padding: 0.7rem 0;
+    align-items: baseline;
+  }
+
+  .trame-time {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-light);
+    min-width: 60px;
+    flex-shrink: 0;
+  }
+
+  .trame-title {
+    font-size: 17px;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  /* ── POURQUOI VOUS ───────────────────────────────────────────────── */
+  .section-pourquoi {
+    background: var(--navy);
+    color: var(--cream);
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-pourquoi .section-label {
+    color: var(--cream);
+    border-bottom-color: var(--cream);
+    opacity: 0.6;
+  }
+
+  .pourquoi-title {
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+    margin-bottom: 2rem;
+    max-width: 680px;
+  }
+
+  .section-pourquoi .body-text {
+    color: rgba(241, 233, 214, 0.85);
+    max-width: 600px;
+  }
+
+  /* ── FOOTER ───────────────────────────────────────────────────────── */
+  .footer {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(241, 233, 214, 0.15);
+  }
+
+  .footer-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+  }
+
+  .footer-contact {
+    font-size: 14px;
+    color: rgba(241, 233, 214, 0.6);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero { padding: 2rem; }
+    .section { padding: 3.5rem 2rem; }
+    .divider { margin: 0 2rem; }
+    .explore-grid { grid-template-columns: 1fr; }
+    .videos-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-title { font-size: clamp(56px, 18vw, 80px); }
+    .footer { padding: 2rem; flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .hero-top, .hero-bottom { flex-direction: column; gap: 0.5rem; }
+    .hero-meta, .footer-contact { text-align: left; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-top">
+      <span class="hero-eyebrow">Podcast · Été 2026</span>
+      <span class="hero-meta">Plaquette de présentation · Invités</span>
+    </div>
+
+    <div class="hero-center">
+      <h1 class="hero-title anton">LIMPIDE</h1>
+      <p class="hero-subtitle">Un espace d'apprentissage sur ce qui compte dans une vie.</p>
+    </div>
+
+    <div class="hero-bottom">
+      <span class="hero-name">Marceau Pesme</span>
+      <div class="hero-contact">
+        marceaupesme@gmail.com<br>
+        06.22.27.39.51
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUI SUIS-JE ════════════════════════════════════════════════════ -->
+  <section class="section section-qui">
+    <div class="section-label anton">Qui suis-je ?</div>
+
+    <div class="fade-in">
+      <p class="body-text">Je m'appelle Marceau Pesme. À 17 ans, j'ai décidé de partir étudier le génie civil à l'Université de Colombie-Britannique, à Vancouver. 5 ans en Amérique du Nord m'ont formé autant qu'ils m'ont interrogé.</p>
+      <p class="body-text">J'y ai découvert une culture où l'ambition est décomplexée, où l'honnêteté émotionnelle est une force. En même temps, j'ai compris ce que la France porte d'irremplaçable : une tradition de pensée critique, un rapport au doute, une certaine façon de ne pas croire les choses trop vite.</p>
+      <p class="body-text">Après cette étape à Vancouver, je rentre en France cet été et rejoindrai HEC Paris à l'automne. Limpide n'est pas un projet parallèle à ma vie — c'est la continuité naturelle de toutes ces années à chercher, à écouter, à vouloir comprendre comment les gens qui vivent bien ont appris à le faire.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══ LE PROJET ══════════════════════════════════════════════════════ -->
+  <section class="section section-projet">
+    <div class="section-label anton">Le projet</div>
+
+    <div class="pull-quote fade-in">
+      <p>Comment vivre mieux, en comprenant mieux&nbsp;?</p>
+    </div>
+
+    <div class="fade-in">
+      <p class="body-text">Limpide est né d'un désir intime de comprendre ce qui fait la trame d'une vie : la façon dont on choisit de vivre, le monde qui nous forme et les relations qui nous façonnent.</p>
+      <p class="body-text">Un espace long format pour explorer ces questions avec des invités qui les ont travaillées — philosophes, psychologues, chercheurs, intellectuels — et des personnes qui ont accompli des choses hors du commun. Le plus souvent, plus âgés que moi. C'est voulu : à 22 ans, on n'a pas encore les réponses, mais on a les bonnes questions.</p>
+      <p class="body-text">Je n'arrive pas en expert. J'arrive en animateur curieux, là pour apprendre — et l'audience apprend avec moi.</p>
+    </div>
+  </section>
+
+  <!-- ══ CE QU'ON EXPLORE ═══════════════════════════════════════════════ -->
+  <section class="section section-explore">
+    <div class="section-label anton">Ce qu'on explore</div>
+
+    <div class="explore-list fade-in">
+      <div class="explore-item">
+        <span class="explore-item-title">Psychologie &amp; identité</span>
+        <span class="explore-item-desc">Comment on fonctionne, pourquoi on réagit comme on réagit. Émotions, biais cognitifs, estime de soi, sciences du comportement.</span>
+      </div>
+      <div class="explore-item">
+        <span class="explore-item-title">Relations &amp; liens humains</span>
+        <span class="explore-item-desc">Amour, amitié, famille, solitude. Ce qui unit les gens, ce qui les sépare, et ce qui rend une relation solide dans la durée.</span>
+      </div>
+      <div class="explore-item">
+        <span class="explore-item-title">Accomplissement &amp; sens</span>
+        <span class="explore-item-desc">Ambition, travail, réussite, regrets. Qu'est-ce que réussir sa vie veut vraiment dire — et qui en décide&nbsp;?</span>
+      </div>
+      <div class="explore-item">
+        <span class="explore-item-title">Société &amp; monde</span>
+        <span class="explore-item-desc">Les structures qui nous forment, nous contraignent, parfois nous libèrent. Ce que le monde où l'on vit fait de nous.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VIDÉOS ══════════════════════════════════════════════════════════ -->
+  <section class="section section-videos">
+    <div class="section-label anton">Deux exemples</div>
+    <h2 class="section-title anton">Le format en pratique.</h2>
+
+    <div class="videos-grid">
+      <div class="video-block fade-in">
+        <div class="video-tag anton">Format court</div>
+        <p class="video-label">Un aperçu — ce à quoi ressemble Limpide.</p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/Zniqh1zfFy4"
+            title="Limpide — format court"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="video-block fade-in">
+        <div class="video-tag anton">Format long</div>
+        <p class="video-label">Une conversation — dans toute sa profondeur.</p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/oLy6C1TCM1c"
+            title="Limpide — format long"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ UNE CONVERSATION ════════════════════════════════════════════════ -->
+  <section class="section section-conversation">
+    <div class="section-label anton">Une conversation, pas un format</div>
+
+    <p class="body-text fade-in">Les meilleures conversations ne suivent pas de plan. Elles bifurquent, s'attardent sur ce qui mérite attention, reviennent sur ce qu'on croyait avoir compris. Une trame possible, pas une contrainte.</p>
+
+    <div class="trame fade-in">
+      <div class="trame-item">
+        <span class="trame-time">~10 min</span>
+        <span class="trame-title">D'où venez-vous&nbsp;?</span>
+      </div>
+      <div class="trame-item">
+        <span class="trame-time">~40 min</span>
+        <span class="trame-title">Ce que vous avez compris</span>
+      </div>
+      <div class="trame-item">
+        <span class="trame-time">~10 min</span>
+        <span class="trame-title">Ce que vous transmettriez</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ POURQUOI VOUS ══════════════════════════════════════════════════ -->
+  <section class="section section-pourquoi">
+    <div class="section-label anton">Pourquoi vous&nbsp;?</div>
+
+    <h2 class="pourquoi-title anton fade-in">Parce que vous pouvez nous apprendre quelque chose.</h2>
+
+    <div class="fade-in">
+      <p class="body-text">Pas un savoir, exactement. Plutôt une façon de voir, qui vient de ce que vous avez étudié, construit, vécu — par la recherche, par la réflexion, ou simplement par le fait d'avoir fait des choses que peu de gens font. C'est cette transmission que Limpide cherche à rendre possible.</p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <span class="footer-name">Marceau Pesme</span>
+    <div class="footer-contact">
+      marceaupesme@gmail.com · 06.22.27.39.51
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
